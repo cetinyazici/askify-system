@@ -5,25 +5,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Set;
-
 @Entity
-@Table(name = "user")
+@Table(name = "p_like")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class Like {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    Long id;
 
-    @Column(name = "user_name")
-    private String userName;
+    @ManyToOne
+    @JoinColumn(name = "post_id")    // Her "like" bir gönderiye ait.
+    private Post post;
 
-    @Column(name = "password")
-    private String password;
-
-    @OneToMany(mappedBy = "user")
-    private Set<Comment> comments;
+    @ManyToOne
+    @JoinColumn(name = "user_id")  // Her "like" bir kullanıcıya ait.
+    private User user;
 }
