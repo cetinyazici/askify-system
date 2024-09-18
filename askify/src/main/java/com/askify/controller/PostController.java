@@ -13,6 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api/post")
+@CrossOrigin(origins = "http://localhost:3000")
 public class PostController {
     @Autowired
     private IPostService service;
