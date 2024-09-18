@@ -56,7 +56,6 @@ public class PostServiceImpl implements IPostService {
             post.setId(postUpdateRequest.getId());
             post.setTitle(postUpdateRequest.getTitle());
             post.setContent(postUpdateRequest.getContent());
-
             return repository.save(post);
         }
         return null;
