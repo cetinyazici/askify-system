@@ -1,41 +1,15 @@
 import React,{useState,useEffect} from "react";
-import ReactDOM from "react-dom";
+import './PostList.css';
 
-function Post(){
-    const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded]= useState(false);
-    const [postList, setPostList]=useState([]);
-
-    useEffect(()=>{
-        fetch("http://localhost:8585/api/post/list")
-        .then(res => res.json())
-        .then(
-            (result)=>{
-                setIsLoaded(true);
-                setPostList(result)
-            },
-            (error)=>{
-                setIsLoaded(true);
-                setError(error)
-            }
-        )
-    },[])
-
-    if(error){
-        return <div>Error!!!</div>
-    }else if(!isLoaded){
-        return <div>Loading---</div>
-    }else{
-        return(
-            <ul>
-                {postList.map(post=>(
-                        <li>
-                            {post.title} {post.content}
-                        </li>
-                ))}
-            </ul>
-        );
-    }
+function Post(props){
+    const{title,content}=props;
+    return(
+        <div className="postContainer">
+            {title}
+            {content}
+        </div>
+    )
+    
 }
 export default Post;
 

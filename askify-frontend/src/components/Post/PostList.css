@@ -1,0 +1,14 @@
+.postContainer {
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    padding: 20px;
+    margin: 10px 0; /* Adjusted margin to ensure spacing between posts */
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    font-family: 'Arial, sans-serif';
+    max-width: 600px;
+    width: 100%; /* Ensures the post takes up the full width of the parent container */
+    display: block; /* Ensures the post is displayed as a block element */
+}
